@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "@/components/login/Header";
-import SignupCard from "@/components/signup/SignupCard";
+import LoginCard from "@/components/login/LoginCard";
 const page = () => {
   return (
     <div className="w-full h-screen items-center justify-center flex flex-col space-y-6">
@@ -8,7 +8,7 @@ const page = () => {
       <Header />
 
       {/* */}
-      <SignupCard />
+      <LoginCard />
     </div>
   );
 };
