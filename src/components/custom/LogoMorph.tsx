@@ -1,46 +1,60 @@
 "use client";
 
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 
 gsap.registerPlugin(MorphSVGPlugin);
-
-export default function LogoMorph() {
+interface LogoMorphProps {
+  expanded: boolean; // controlled by parent
+}
+export default function LogoMorph({ expanded }: LogoMorphProps) {
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
   useLayoutEffect(() => {
+    if (!svgRef.current) return;
+
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-
-      gsap.set("#coup-letters path", {
-        y: -10,
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.out" },
+        paused: true,
       });
+      tlRef.current = tl;
+      tl.set("#coup-letters path", { opacity: 0, y: -10 });
 
-      // Morph all core logo parts in parallel (fast)
-      tl.to("#logo-bg", { duration: 0.4, morphSVG: "#bg-shape" }, 0)
-        .to("#logo-outline", { duration: 0.4, morphSVG: "#border-outline" }, 0)
-        .to("#logo-side", { duration: 0.4, morphSVG: "#left-extension" }, 0)
-        .to("#logo-bottom", { duration: 0.4, morphSVG: "#bottom-bar" }, 0)
-        .to("#logo-glyph", { duration: 0.4, morphSVG: "#letter-s" }, 0)
-
-        // After morph, reveal COUP one by one
+      tl.to("#logo-bg", { duration: 0.2, morphSVG: "#bg-shape" }, 0)
+        .to("#logo-outline", { duration: 0.2, morphSVG: "#border-outline" }, 0)
+        .to("#logo-side", { duration: 0.2, morphSVG: "#left-extension" }, 0)
+        .to("#logo-bottom", { duration: 0.2, morphSVG: "#bottom-bar" }, 0)
+        .to("#logo-glyph", { duration: 0.2, morphSVG: "#letter-s" }, 0)
         .to(
           "#coup-letters path",
           {
             opacity: 1,
             y: 0,
-            duration: 0.25,
+            duration: 0.1,
             stagger: 0.05,
             ease: "power1.out",
           },
           "-=0.15"
         );
-    });
+    }, svgRef);
 
     return () => ctx.revert();
   }, []);
 
+  useLayoutEffect(() => {
+    if (!tlRef.current) return;
+    if (expanded) {
+      tlRef.current.play();
+    } else {
+      tlRef.current.reverse();
+    }
+  }, [expanded]);
+
   return (
     <svg
+      ref={svgRef}
       width="62"
       height="32"
       viewBox="0 0 62 32"
