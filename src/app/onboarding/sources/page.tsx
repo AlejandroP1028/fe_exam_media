@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
-import { SourcesTable } from "@/components/onboarding/SourcesTable";
-import { ImportModal } from "@/components/onboarding/ImportModal";
+import { SourcesTable } from "@/components/onboarding/sources/SourcesTable";
+import { ImportModal } from "@/components/onboarding/sources/ImportModal";
 import type { SocialMediaRow } from "@/lib/types";
 import Link from "next/link";
 import CustomButton from "@/components/custom/Button";

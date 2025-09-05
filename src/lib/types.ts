@@ -13,4 +13,24 @@ interface SocialMediaRow {
   youtube: string;
 }
 
-export type { TablerIcon, SocialMediaRow };
+interface SocialSource {
+  quantity: number;
+  image: string;
+  platform: string;
+}
+
+type Publishers = Pick<SocialSource, "quantity" | "image">;
+
+interface PublisherRow {
+  id: number;
+  website: string;
+  publication: string;
+}
+
+export type {
+  TablerIcon,
+  SocialMediaRow,
+  PublisherRow,
+  SocialSource,
+  Publishers,
+};
