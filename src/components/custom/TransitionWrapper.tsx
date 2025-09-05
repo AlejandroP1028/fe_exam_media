@@ -20,12 +20,23 @@ export default function PageTransition({ children }: PageTransitionProps) {
 
     if (isInitialLoad.current) {
       isInitialLoad.current = false;
-      gsap.set(contentRef.current, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-      });
+      gsap.fromTo(
+        contentRef.current,
+        {
+          opacity: 0,
+          y: 20,
+          scale: 1.02,
+          filter: "blur(4px)",
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.6,
+          ease: "power3.out",
+        }
+      );
       prevPathnameRef.current = pathname;
       return;
     }
@@ -68,7 +79,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
       ref={containerRef}
       className="relative w-full min-h-screen overflow-hidden"
     >
-      <div ref={contentRef} className="relative w-full min-h-screen">
+      <div ref={contentRef} className="relative w-full min-h-screen opacity-0">
         {children}
       </div>
     </div>

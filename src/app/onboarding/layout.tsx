@@ -11,9 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <CustomSidebar />
         </div>
 
-        <main className="w-full">
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <main className=" w-screen flex items-center ">{children}</main>
       </Provider>
     </div>
   );
