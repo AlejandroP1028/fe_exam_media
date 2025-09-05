@@ -1,9 +1,20 @@
+"use client";
+import PageTransition from "@/components/custom/TransitionWrapper";
 import { CustomSidebar } from "@/components/sidebars/OnboardingSidebar";
+import { Provider } from "react-redux";
+import { store } from "@/store";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <CustomSidebar />
-      <main>{children}</main>
-    </>
+    <div className="flex flex-row">
+      <Provider store={store}>
+        <div className="w-46 h-full">
+          <CustomSidebar />
+        </div>
+
+        <main className="w-full">
+          <PageTransition>{children}</PageTransition>
+        </main>
+      </Provider>
+    </div>
   );
 }

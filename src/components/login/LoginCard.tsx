@@ -72,7 +72,7 @@ const LoginCard = () => {
           </div>
 
           {/* Submit Button */}
-          <Link href={"/auth/login"}>
+          <Link href={"/onboarding/account_information"}>
             <CustomButton text="sign in" width="100%" disabled={!isFormValid} />
           </Link>
         </form>

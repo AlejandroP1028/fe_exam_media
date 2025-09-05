@@ -3,6 +3,8 @@
 import type React from "react";
 import { useState, useRef, useLayoutEffect } from "react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 import { usePathname } from "next/navigation";
 import {
   IconUserCog,
@@ -10,6 +12,7 @@ import {
   IconSpeakerphone,
   IconBallpen,
   IconFileText,
+  IconCheck,
 } from "@tabler/icons-react";
 import gsap from "gsap";
 import LogoMorph from "@/components/custom/LogoMorph";
@@ -30,6 +33,10 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
   const textRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const footerTextRef = useRef<HTMLParagraphElement>(null);
   const baseUrl = "/onboarding";
+  const stepsFinished = useSelector(
+    (state: RootState) => state.onboarding.stepsFinished
+  );
+
   const sidebarLinks: SidebarLink[] = [
     {
       title: "Account",
@@ -100,7 +107,7 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
   return (
     <div
       className={`
-        fixed left-0 top-0 h-full
+         left-0 top-0 h-screen
         transition-all duration-300 ease-in-out z-50
         font-sans
         ${isExpanded ? "w-40" : "w-16"}
@@ -139,13 +146,19 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
                   `}
                 >
                   <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
-                    <Icon
-                      size={20}
-                      className={`
-                        transition-colors duration-200
-                        ${isActive ? "text-sidebar-primary" : "text-[#3D3D3A]"}
-                      `}
-                    />
+                    {stepsFinished[index] ? (
+                      <IconCheck
+                        size={20}
+                        className="text-green-600 transition-colors duration-200"
+                      />
+                    ) : (
+                      <Icon
+                        size={20}
+                        className={`transition-colors duration-200 ${
+                          isActive ? "text-sidebar-primary" : "text-[#3D3D3A]"
+                        }`}
+                      />
+                    )}
                   </div>
                   <span
                     ref={(el) => {
