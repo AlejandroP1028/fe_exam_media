@@ -7,8 +7,8 @@ import Link from "next/link";
 const KeywordsHeader = () => {
   const dispatch = useDispatch();
   return (
-    <div className="w-[860px] flex flex-row justify-between items-center">
-      <div className="flex font-sans flex-col  py-2">
+    <div className="w-[860px] flex flex-row justify-between pt-4 items-center">
+      <div className="flex font-sans flex-col  ">
         <h2 className="font-black text-xl">Keywords</h2>
         <span className="font-normal text-md text-[#3D3D3A]">
           Setup the keywords needed for the content
@@ -18,7 +18,7 @@ const KeywordsHeader = () => {
         <Link href={"/onboarding/sources"}>
           <CustomButton
             text="COMPLETE"
-            width="100%"
+            width="140px"
             height="40px"
             onClick={() => {
               dispatch(completeStep(2));
