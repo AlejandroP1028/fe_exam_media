@@ -33,7 +33,7 @@ const ArticleFooter = ({
   ];
 
   return (
-    <div className="w-full border-y border-[#D5D5CE66]">
+    <div className={`w-full ${expanded && "border-y border-[#D5D5CE66]"}`}>
       {/* Expand/Collapse button */}
       <AnimatePresence>
         {expanded && (
@@ -67,7 +67,7 @@ const ArticleFooter = ({
       </AnimatePresence>
       <button
         onClick={() => setExpanded((prev) => !prev)}
-        className="space-x-2 py-2 flex flex-row font-mono text-sm leading-[16px] text-text-primary w-full items-center justify-center"
+        className="space-x-2 py-2 flex flex-row font-mono text-sm leading-[16px] border-t border-[#D5D5CE66] text-text-primary w-full items-center justify-center"
       >
         {expanded ? "HIDE DETAILS" : "SHOW MORE DETAILS"}
         <motion.div
