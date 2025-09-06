@@ -34,7 +34,7 @@ const ArticleHeader = ({ rank, title, metrics }: ArticleHeaderProps) => {
   ];
 
   return (
-    <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row  sm:items-start">
+    <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row  sm:items-start px-4 pt-4">
       <div className="flex flex-row space-x-4 ">
         <span className="w-8 h-8 flex bg-[#FEF3C7] text-[#B45309] font-semibold font-inter-sans leading-[15.6px] rounded-full items-center justify-center">
           {rank}

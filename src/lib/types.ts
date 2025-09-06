@@ -27,10 +27,26 @@ interface PublisherRow {
   publication: string;
 }
 
+interface ArticleFooterProps {
+  whoImportant: string;
+  whatNext: string;
+  biggerPicture: string;
+}
+
+interface ArticleImage {
+  src: string;
+  alt: string;
+}
+type Section = {
+  label: string;
+  content: string;
+  border: "right" | "left" | "none";
+};
 interface ArticleCardProps {
   header: ArticleHeaderProps;
-  images: string[];
+  images: ArticleImage[];
   details: ArticleDetailsProps;
+  footer: ArticleFooterProps;
 }
 
 interface ArticleHeaderProps {
@@ -57,7 +73,7 @@ interface DashboardHeaderProps {
   categories: string[];
 }
 interface ArticleImagesProps {
-  images: string[];
+  images: ArticleImage[];
 }
 
 interface ArticleDetailsProps {
@@ -68,6 +84,9 @@ interface ArticleDetailsProps {
 }
 
 export type {
+  Section,
+  ArticleFooterProps,
+  ArticleImage,
   ArticleMetric,
   ArticleDetailsProps,
   ArticleImagesProps,

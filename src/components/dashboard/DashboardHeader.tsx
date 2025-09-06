@@ -5,7 +5,7 @@ import { DashboardHeaderProps } from "@/lib/types";
 
 const DashboardHeader = ({ categories }: DashboardHeaderProps) => {
   return (
-    <div className="sm:w-[1440px] sticky top-0 z-40 ">
+    <div className="sm:w-[1440px] sticky top-0 z-40 bg-background pb-2">
       <div className="   space-y-3">
         <h3 className="py-4 font-sans font-bold leading-[120%] text-xl">
           Office of the President
