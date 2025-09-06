@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  Archivo,
-  Chivo,
-  Chivo_Mono,
-} from "next/font/google";
+import { Archivo, Chivo, Chivo_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
 const archivo = Archivo({
   variable: "--font-archivo",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -36,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${archivo.variable} ${chivo.variable} ${chivoMono.variable} antialiased`}
+        className={`${archivo.variable} ${chivo.variable} ${chivoMono.variable} ${inter.variable} antialiased`}
       >
         {children}
       </body>

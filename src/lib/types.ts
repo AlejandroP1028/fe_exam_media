@@ -27,7 +27,53 @@ interface PublisherRow {
   publication: string;
 }
 
+interface ArticleCardProps {
+  header: ArticleHeaderProps;
+  images: string[];
+  details: ArticleDetailsProps;
+}
+
+interface ArticleHeaderProps {
+  rank: number;
+  title: string;
+  metrics: {
+    engagementScore: number;
+    velocity: number;
+    comments: number;
+    shares: number;
+    articles: number;
+    estimatedTraffic: number;
+  };
+}
+
+interface ArticleMetric {
+  label: string;
+  score: string | number;
+  border: "right" | "left" | "none";
+  flex?: number; // width in px
+}
+
+interface DashboardHeaderProps {
+  categories: string[];
+}
+interface ArticleImagesProps {
+  images: string[];
+}
+
+interface ArticleDetailsProps {
+  story: string;
+  whyItMatters: string;
+  whoImportant: string;
+  biggerPicture: string;
+}
+
 export type {
+  ArticleMetric,
+  ArticleDetailsProps,
+  ArticleImagesProps,
+  ArticleHeaderProps,
+  ArticleCardProps,
+  DashboardHeaderProps,
   TablerIcon,
   SocialMediaRow,
   PublisherRow,
