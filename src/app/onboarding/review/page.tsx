@@ -42,7 +42,7 @@ const Page = () => {
           </div>
 
           {/* Button Section */}
-          <Link href="/onboarding/sources" passHref>
+          <Link href="/success" passHref>
             <CustomButton
               text="COMPLETE"
               width="140px"
