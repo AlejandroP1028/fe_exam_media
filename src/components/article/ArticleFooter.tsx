@@ -52,7 +52,7 @@ const ArticleFooter = ({
                     section.border
                   )}`}
                 >
-                  <div className="flex flex-row font-mono text-sm w-full leading-[16px] uppercase">
+                  <div className="flex flex-row font-mono text-sm font-semibold w-full leading-[16px] uppercase">
                     {section.label}{" "}
                     <IconChevronRight className="ml-2" size={12} />
                   </div>

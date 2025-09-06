@@ -44,7 +44,7 @@ const ArticleDetails = ({
               section.border
             )}`}
           >
-            <div className="flex flex-row font-mono text-sm w-full leading-[16px] uppercase">
+            <div className="flex flex-row font-mono font-semibold text-sm w-full leading-[16px] uppercase">
               {section.label} <IconChevronRight className="ml-2" size={12} />
             </div>
             <div className="font-sans text-xs leading-[180%] h-[240px] overflow-hidden text-ellipsis">
