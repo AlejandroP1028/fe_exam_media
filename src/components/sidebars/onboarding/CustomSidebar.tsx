@@ -14,7 +14,7 @@ import {
 } from "@tabler/icons-react";
 import LogoMorph from "@/components/custom/LogoMorph";
 import { useSidebar } from "@/hooks/useSidebar";
-import { SidebarItem } from "./SidebarItem";
+import { SidebarItem } from "../SidebarItem";
 
 interface SidebarLink {
   title: string;
