@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { usePathname } from "next/navigation";
@@ -14,6 +14,7 @@ import {
 } from "@tabler/icons-react";
 import LogoMorph from "@/components/custom/LogoMorph";
 import { useSidebar } from "@/hooks/useSidebar";
+
 import { SidebarItem } from "../SidebarItem";
 
 interface SidebarLink {
@@ -27,6 +28,8 @@ interface CustomSidebarProps {
 }
 
 export function CustomSidebar({ className = "" }: CustomSidebarProps) {
+  const [mounted, setMounted] = useState(false); // client mount check
+
   const {
     isExpanded,
     setIsExpanded,
@@ -35,6 +38,7 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
     handleMouseEnter,
     handleMouseLeave,
   } = useSidebar();
+
   const pathname = usePathname();
   const stepsFinished = useSelector(
     (state: RootState) => state.onboarding.stepsFinished
@@ -53,6 +57,12 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
     { title: "Publishers", icon: IconBallpen, url: `${baseUrl}/publishers` },
     { title: "Review", icon: IconFileText, url: `${baseUrl}/review` },
   ];
+
+  useEffect(() => {
+    setMounted(true); // mark as mounted
+  }, []);
+
+  if (!mounted) return null; // prevent SSR/client mismatch
 
   return (
     <>
@@ -77,15 +87,12 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
       {/* Sidebar */}
       <div
         className={`
-          left-0 top-0 h-screen
-          transition-all duration-300 ease-in-out z-50
-          font-sans
-          ${isExpanded ? "w-64" : "w-16"}
-          ${className}
-          fixed md:relative
-          md:hover:w-40
-          bg-white md:bg-transparent
+          fixed top-0 left-0 h-screen
+          ${isExpanded ? "w-48" : "w-16"}
+          bg-white sm:bg-background font-sans
+          z-50 transition-all duration-300 ease-in-out
           ${isExpanded ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+          ${className}
         `}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -96,6 +103,7 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
             <LogoMorph expanded={isExpanded} />
           </div>
         </div>
+
         {/* Navigation */}
         <nav className="flex-1">
           <ul className="px-3">

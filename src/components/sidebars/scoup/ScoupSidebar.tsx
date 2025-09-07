@@ -86,13 +86,13 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
       {/* Sidebar */}
       <div
         className={`
-          fixed md:relative left-0 top-0 h-screen
-          transition-all duration-300 ease-in-out z-50 font-sans
-          ${isExpanded ? "w-64" : "w-16"}
-          ${className}
-          bg-white md:bg-transparent
-          ${isExpanded ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-        `}
+    fixed top-0 left-0 h-screen font-sans
+    ${isExpanded ? "w-48" : "w-16"}
+    bg-white sm:bg-background
+    z-50 transition-all duration-300 ease-in-out
+    ${isExpanded ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+    ${className}
+  `}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -121,7 +121,7 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
         </nav>
 
         {/* Footer */}
-        <footer className="mt-auto fixed bottom-0 py-3 px-3 font-sans text-[#3D3D3A] space-y-2 border-t w-full">
+        <footer className="mt-auto fixed bottom-0 py-3 px-3 font-sans text-[#3D3D3A] space-y-2 w-full">
           {/* Release Notes */}
           <Link
             href="/profile"

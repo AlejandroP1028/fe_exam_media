@@ -6,18 +6,14 @@ import { store } from "@/store";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <Provider store={store}>
-      <div className="flex  flex-col sm:flex-row  min-h-screen  ">
-        {/* Sidebar */}
-        <aside className="sm:w-46 h-fit sm:h-full flex-shrink-0">
+    <div className="flex flex-col sm:flex-row">
+      <Provider store={store}>
+        <div className="w-46 h-full">
           <CustomSidebar />
-        </aside>
+        </div>
 
-        {/* Main content */}
-        <main className="flex-1 w-full sm:w-auto flex flex-col">
-          {children}
-        </main>
-      </div>
-    </Provider>
+        <main className=" w-screen flex items-center ">{children}</main>
+      </Provider>
+    </div>
   );
 }
