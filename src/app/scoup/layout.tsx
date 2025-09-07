@@ -3,16 +3,21 @@
 import { CustomSidebar } from "@/components/sidebars/ScoupSidebar";
 import { Provider } from "react-redux";
 import { store } from "@/store";
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-row">
-      <Provider store={store}>
-        <div className="w-46 h-full">
+    <Provider store={store}>
+      <div className="flex  sm:flex-row  min-h-screen  ">
+        {/* Sidebar */}
+        <aside className="w-46 h-fit sm:h-full flex-shrink-0">
           <CustomSidebar />
-        </div>
+        </aside>
 
-        <main className=" w-screen flex items-center ">{children}</main>
-      </Provider>
-    </div>
+        {/* Main content */}
+        <main className="flex-1 w-full sm:w-auto flex flex-col">
+          {children}
+        </main>
+      </div>
+    </Provider>
   );
 }

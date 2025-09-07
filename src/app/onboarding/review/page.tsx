@@ -10,7 +10,7 @@ import AccountInformationCell from "@/components/onboarding/AccountInformationCe
 import SocialSources from "@/components/onboarding/SocialSources";
 import KeywordsNum, {
   KeywordsProps,
-} from "@/components/onboarding/KeywordsNum";
+} from "@/components/onboarding/keywords/KeywordsNum";
 const Page = () => {
   const dispatch = useDispatch();
 

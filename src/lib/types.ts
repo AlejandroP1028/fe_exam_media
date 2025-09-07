@@ -33,6 +33,11 @@ interface ArticleFooterProps {
   biggerPicture: string;
 }
 
+interface KeywordTag {
+  id: string;
+  text: string;
+}
+
 interface ArticleImage {
   src: string;
   alt: string;
@@ -98,4 +103,5 @@ export type {
   PublisherRow,
   SocialSource,
   Publishers,
+  KeywordTag,
 };

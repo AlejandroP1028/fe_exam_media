@@ -1,10 +1,10 @@
 import React from "react";
 
-import AccountInformationCard from "@/components/onboarding/AccountInformationCard";
+import OnboardingInfoCard from "@/components/onboarding/accountInformation/OnboardingInfoCard";
 const page = () => {
   return (
-    <div className="w-full h-screen items-center justify-center flex flex-col space-y-6">
-      <AccountInformationCard />
+    <div className="w-full h-screen items-center justify-center flex space-y-6 ">
+      <OnboardingInfoCard />
     </div>
   );
 };

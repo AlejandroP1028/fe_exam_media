@@ -30,7 +30,7 @@ export function KeywordSection({
   badgeClass,
 }: KeywordSectionProps) {
   return (
-    <div className="flex flex-col space-y-2 mb-8">
+    <div className="flex flex-col space-y-2 mb-8 w-full">
       <h2 className="text-md font-semibold text-gray-900">{title}</h2>
       <div className="flex flex-wrap gap-2">
         <AnimatePresence>
@@ -55,7 +55,7 @@ export function KeywordSection({
         value={inputValue}
         onChange={(e) => onInputChange(e.target.value)}
         onKeyPress={onKeyPress}
-        className="text-gray-500 font-mono border-none shadow-none"
+        className="text-gray-500 font-mono border-none shadow-none w-full"
       />
     </div>
   );
