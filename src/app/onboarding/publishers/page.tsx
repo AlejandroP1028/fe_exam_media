@@ -1,69 +1,48 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { PublishersTable } from "@/components/onboarding/publishers/PublishersTable";
-
-import { ImportModal } from "@/components/onboarding/publishers/ImportModal";
-import type { PublisherRow } from "@/lib/types";
+import { useDispatch } from "react-redux";
+import { completeStep } from "@/store/onboardingSlice";
 import Link from "next/link";
 import CustomButton from "@/components/custom/Button";
 import { IconDownload } from "@tabler/icons-react";
-import { useDispatch } from "react-redux";
-import { completeStep } from "@/store/onboardingSlice";
+import { PublishersTable } from "@/components/onboarding/publishers/PublishersTable";
+import { ImportModal } from "@/components/onboarding/publishers/ImportModal";
+import { usePublishersManager } from "@/hooks/usePublishersManager";
 
-export default function SourcesPage() {
+export default function PublishersPage() {
   const dispatch = useDispatch();
-  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
-  const [data, setData] = useState<PublisherRow[]>([]);
-  const [rowCount, setRowCount] = useState(1);
-  const [disabled, setDisabled] = useState(true);
-  const handleFileSelect = (file: File) => {
-    setUploadedFile(file);
-  };
-
-  useEffect(() => {
-    if (data.length > 0) setDisabled(false);
-  }, [data]);
-
-  const handleFileRemove = () => {
-    setUploadedFile(null);
-  };
-
-  const handleImport = () => {
-    if (uploadedFile) {
-      const newData: PublisherRow[] = Array.from(
-        { length: rowCount },
-        (_, i) => ({
-          id: i + 1,
-          website: "https://inquirer.ph/",
-          publication: "Philippine Daily Inquirer",
-        })
-      );
-      setData(newData);
-      setIsImportModalOpen(false);
-      setUploadedFile(null);
-    }
-  };
+  const {
+    isImportModalOpen,
+    setIsImportModalOpen,
+    uploadedFile,
+    data,
+    rowCount,
+    disabled,
+    handleFileSelect,
+    handleFileRemove,
+    handleImport,
+    handleRowCountChange,
+  } = usePublishersManager();
 
   return (
     <div className="min-h-screen py-2 w-full">
-      <div className="mx-auto w-[800px]">
+      <div className="mx-auto max-w-full sm:max-w-[800px] px-4">
         {/* Header */}
-        <div className="w-full flex flex-row justify-between items-center mb-6">
-          <div className="flex font-sans flex-col  py-2">
+        <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+          <div className="flex flex-col font-sans">
             <h2 className="font-black text-xl">Publishers</h2>
             <span className="font-normal text-md text-[#3D3D3A]">
               Upload an Excel file with your publishers
             </span>
           </div>
-          <div className="flex  items-center flex-row gap-3">
+
+          <div className="flex items-center justify-center gap-3 w-full sm:w-auto flex-shrink-0">
             <CustomButton
               text="IMPORT CSV/EXCEL"
               icon={<IconDownload size={16} />}
               width="187px"
               height="40px"
-              className="bg-[#FFBA49] text-[#141413] hover:text-[#141413] hover:bg-[#FFBA49]/80 "
+              className="bg-[#FFBA49] text-[#141413] hover:text-[#141413] hover:bg-[#FFBA49]/80"
               onClick={() => setIsImportModalOpen(true)}
             />
 
@@ -80,22 +59,21 @@ export default function SourcesPage() {
           </div>
         </div>
 
+        {/* Publishers Table */}
         <PublishersTable data={data} />
 
         {/* Add Row Controls */}
-        <div className=" flex items-center gap-4 text-sm fixed bottom-0 bg-[#FFFFFF] h-[46px] border w-[800px] px-4 ">
+        <div className="fixed bottom-0 left-0 right-0 flex items-center gap-4 text-sm bg-white border-t py-2 px-4 sm:px-0 sm:justify-center z-50">
           <button className="font-sans text-[#141413] font-semibold">
             Add
           </button>
           <input
             type="number"
-            min="1"
-            max="100"
+            min={1}
+            max={100}
             value={rowCount}
-            onChange={(e) =>
-              setRowCount(Math.max(1, Number.parseInt(e.target.value) || 1))
-            }
-            className="w-10.5 px-1 text-center border border-[#1F1E1D26] bg-[#FCFDFD] rounded-[6px]"
+            onChange={(e) => handleRowCountChange(Number(e.target.value))}
+            className="w-12 px-1 text-center border border-[#1F1E1D26] bg-[#FCFDFD] rounded-[6px]"
           />
           <span className="text-gray-600">more rows</span>
         </div>
