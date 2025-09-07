@@ -46,7 +46,7 @@ export default function SourcesPage() {
               icon={<IconDownload size={16} />}
               width="187px"
               height="40px"
-              className="bg-[#FFBA49] text-[#141413] hover:text-[#141413] hover:bg-[#FFBA49]/80"
+              className="bg-[#FFBA49] w-full text-[#141413] hover:text-[#141413] hover:bg-[#FFBA49]/80"
               onClick={() => setIsImportModalOpen(true)}
             />
 

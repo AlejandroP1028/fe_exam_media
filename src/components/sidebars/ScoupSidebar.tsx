@@ -178,9 +178,10 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
           >
             <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
               <Image
+                width={32}
+                height={32}
                 src="/Avatar.svg"
                 alt="User avatar"
-                className="w-8 h-8 rounded-full"
               />
             </div>
 

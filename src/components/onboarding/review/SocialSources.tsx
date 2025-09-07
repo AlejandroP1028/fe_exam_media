@@ -10,7 +10,7 @@ import Image from "next/image";
 const SocialSources = ({ platform, quantity, image }: SocialSourcesProps) => {
   return (
     <div className="flex flex-row space-x-2 items-center">
-      <Image src={image} alt="" />
+      <Image src={image} alt="" width={32} height={32} />
       <span>
         {quantity} {platform} {platform ? "Influencers" : "Publishers"}
       </span>
