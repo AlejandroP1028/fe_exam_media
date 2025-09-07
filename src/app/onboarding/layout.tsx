@@ -1,6 +1,6 @@
 "use client";
 
-import { CustomSidebar } from "@/components/sidebars/OnboardingSidebar";
+import { CustomSidebar } from "@/components/sidebars/onboarding/CustomSidebar";
 import { Provider } from "react-redux";
 import { store } from "@/store";
 export default function Layout({ children }: { children: React.ReactNode }) {
