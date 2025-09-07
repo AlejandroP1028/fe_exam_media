@@ -74,10 +74,10 @@ const ScrollableTabs: React.FC<ScrollableTabsProps> = ({ items, onSelect }) => {
 
       {/* Fade effects */}
       {canScrollLeft && (
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-58 bg-gradient-to-r from-background via-background/90 to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-14 sm:w-58 bg-gradient-to-r from-background via-background/90 to-transparent" />
       )}
       {canScrollRight && (
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-58 bg-gradient-to-l from-background via-background/90 to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-14 sm:w-58 bg-gradient-to-l from-background via-background/90 to-transparent" />
       )}
 
       {/* Scroll arrows */}

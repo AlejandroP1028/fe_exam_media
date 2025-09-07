@@ -20,15 +20,9 @@ const Page = () => {
     <div className="min-h-screen  w-full flex flex-col items-center">
       <DashboardHeader categories={categories} />
 
-      <div className="space-y-6 mt-2">
+      <div className="space-y-6 mt-2 mx-auto  w-full px-4">
         {articles.map((article, i) => (
-          <ArticleCard
-            footer={article.footer}
-            key={`article-${i}`}
-            header={article.header}
-            images={article.images}
-            details={article.details}
-          />
+          <ArticleCard key={i} {...article} />
         ))}
       </div>
     </div>

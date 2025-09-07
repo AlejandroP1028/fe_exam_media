@@ -1,12 +1,20 @@
-import React from "react";
-import { ArticleCardProps } from "@/lib/types";
+import type { ArticleCardProps } from "@/lib/types";
 import ArticleHeader from "./ArticleHeader";
 import ArticleImage from "./ArticleImage";
 import ArticleDetails from "./ArticleDetails";
 import ArticleFooter from "./ArticleFooter";
+
 const ArticleCard = ({ header, images, details, footer }: ArticleCardProps) => {
   return (
-    <div className="w-full rounded-[12px] sm:w-[1440px]  border border-[#D5D5CE66] bg-[#FFFFFF]  drop-shadow-article">
+    <div
+      className="
+        w-full sm:max-w-[1440px] 
+        rounded-[12px] border border-[#D5D5CE66] 
+        bg-white drop-shadow-article 
+        mx-auto 
+        overflow-hidden
+      "
+    >
       <ArticleHeader
         rank={header.rank}
         title={header.title}

@@ -1,18 +1,35 @@
 "use client";
 
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import gsap from "gsap";
 
 export function useSidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const textRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const footerTextRef = useRef<HTMLParagraphElement>(null);
 
-  const handleMouseEnter = () =>
-    window.innerWidth >= 768 && setIsExpanded(true);
-  const handleMouseLeave = () =>
-    window.innerWidth >= 768 && setIsExpanded(false);
+  // Detect screen size (mobile vs desktop)
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
+    handleResize(); // run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Hover handlers (desktop only)
+  const handleMouseEnter = () => {
+    if (!isMobile) setIsExpanded(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile) setIsExpanded(false);
+  };
+
+  // GSAP animations
   useLayoutEffect(() => {
     const allTextElements = [
       ...textRefs.current.filter(Boolean),
@@ -50,6 +67,7 @@ export function useSidebar() {
   return {
     isExpanded,
     setIsExpanded,
+    isMobile,
     textRefs,
     footerTextRef,
     handleMouseEnter,

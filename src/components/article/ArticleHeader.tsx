@@ -34,17 +34,17 @@ const ArticleHeader = ({ rank, title, metrics }: ArticleHeaderProps) => {
   ];
 
   return (
-    <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row  sm:items-start px-4 pt-4">
-      <div className="flex flex-row space-x-4 ">
-        <span className="w-8 h-8 flex bg-[#FEF3C7] text-[#B45309] font-semibold font-inter-sans leading-[15.6px] rounded-full items-center justify-center">
+    <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-start px-4 pt-4">
+      <div className="flex flex-row space-x-4">
+        <span className="w-8 h-8 flex bg-[#FEF3C7] text-[#B45309] font-semibold font-inter-sans leading-[15.6px] rounded-full items-center justify-center flex-shrink-0 mt-1">
           {rank}
         </span>
-        <span className="font-sans font-semibold text-2xl tracking-tight leading-[120%] text-text-primary sm:w-162">
+        <span className="font-sans font-semibold text-lg sm:text-2xl tracking-tight leading-[120%] text-text-primary sm:w-162">
           {title}
         </span>
       </div>
 
-      <div className="flex flex-row text-sm  font-sans w-full">
+      <div className="grid grid-cols-3 sm:flex sm:flex-row text-sm font-sans w-full">
         {articleMetrics.map((articleMetric, i) => (
           <ArticleHeaderMetric
             flex={articleMetric.flex}

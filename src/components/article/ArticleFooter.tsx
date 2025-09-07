@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArticleFooterProps, Section } from "@/lib/types";
+import { useState } from "react";
+import type { ArticleFooterProps, Section } from "@/lib/types";
 import { borderStyle } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import { IconChevronRight, IconChevronDown } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const ArticleFooter = ({
   whoImportant,
@@ -13,7 +14,7 @@ const ArticleFooter = ({
   whatNext,
 }: ArticleFooterProps) => {
   const [expanded, setExpanded] = useState(false);
-
+  const isMobile = useIsMobile();
   const sections: Section[] = [
     {
       label: "WHO IS THIS IMPORTANT TO",
@@ -44,13 +45,12 @@ const ArticleFooter = ({
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 items-start px-15.5">
-              {sections.map((section) => (
+            <div className="grid grid-cols-1 sm:grid-cols-3 items-start px-4 sm:px-15.5">
+              {sections.map((section, index) => (
                 <div
                   key={section.label}
-                  className={`p-5 flex flex-col space-y-2 items-center text-text-primary ${borderStyle(
-                    section.border
-                  )}`}
+                  className={`p-4 sm:p-5 flex flex-col space-y-2 items-center text-text-primary 
+                    ${!isMobile && borderStyle(section.border)}`}
                 >
                   <div className="flex flex-row font-mono text-sm font-semibold w-full leading-[16px] uppercase">
                     {section.label}{" "}
@@ -67,7 +67,7 @@ const ArticleFooter = ({
       </AnimatePresence>
       <button
         onClick={() => setExpanded((prev) => !prev)}
-        className="space-x-2 py-2 flex flex-row font-mono text-sm leading-[16px] border-t border-[#D5D5CE66] text-text-primary w-full items-center justify-center"
+        className="space-x-2 py-3 sm:py-2 flex flex-row font-mono text-sm leading-[16px] border-t border-[#D5D5CE66] text-text-primary w-full items-center justify-center"
       >
         {expanded ? "HIDE DETAILS" : "SHOW MORE DETAILS"}
         <motion.div
@@ -77,8 +77,6 @@ const ArticleFooter = ({
           <IconChevronDown size={20} />
         </motion.div>
       </button>
-
-      {/* Expandable Section */}
     </div>
   );
 };

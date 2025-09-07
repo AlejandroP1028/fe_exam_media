@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import type React from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { ArticleImagesProps } from "@/lib/types";
+import type { ArticleImagesProps } from "@/lib/types";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
 const ArticleImage: React.FC<ArticleImagesProps> = ({ images }) => {
@@ -37,52 +38,49 @@ const ArticleImage: React.FC<ArticleImagesProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative w-full h-[116px] px-17 mt-6 mb-4">
-      {/* Scroll container */}
+    <div className="relative w-full h-[100px] sm:h-[116px] px-4 sm:px-17 mt-4 sm:mt-6 mb-4">
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto no-scrollbar space-x-2 px-4"
+        className="flex overflow-x-auto no-scrollbar space-x-2 px-2 sm:px-4"
       >
         {images.map((image, index) => (
           <div
             key={index}
-            className="w-[160px] h-[116px] flex-shrink-0 relative"
+            className="w-[140px] sm:w-[160px] h-[100px] sm:h-[116px] flex-shrink-0 relative"
           >
             <Image
-              src={image.src}
+              src={image.src || "/placeholder.svg"}
               alt={image.alt}
               fill
               className="object-cover rounded-sm"
-              sizes="160px"
+              sizes="(max-width: 640px) 140px, 160px"
             />
           </div>
         ))}
       </div>
 
-      {/* Fade effects */}
       {canScrollLeft && (
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-52 bg-gradient-to-r from-white via-white/90 to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-32 sm:w-52 bg-gradient-to-r from-white via-white/90 to-transparent z-10" />
       )}
       {canScrollRight && (
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-52 bg-gradient-to-l from-white via-white/90 to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-32 sm:w-52 bg-gradient-to-l from-white via-white/90 to-transparent z-10" />
       )}
 
-      {/* Scroll arrows (only show when scrollable) */}
       {canScrollLeft && (
         <button
           onClick={() => scroll("left")}
-          className="absolute left-10 top-1/2 -translate-y-1/2 rounded-full bg-black/40 text-white hover:bg-black/60 p-1 z-20 transition"
+          className="absolute left-2 sm:left-10 top-1/2 -translate-y-1/2 rounded-full bg-black/40 text-white hover:bg-black/60 p-2 z-20 transition min-w-[36px] min-h-[36px] flex items-center justify-center"
         >
-          <IconChevronLeft size={14} />
+          <IconChevronLeft size={16} />
         </button>
       )}
 
       {canScrollRight && (
         <button
           onClick={() => scroll("right")}
-          className="absolute right-10 top-1/2 -translate-y-1/2 rounded-full bg-black/40 text-white hover:bg-black/60 p-1 z-20 transition"
+          className="absolute right-2 sm:right-10 top-1/2 -translate-y-1/2 rounded-full bg-black/40 text-white hover:bg-black/60 p-2 z-20 transition min-w-[36px] min-h-[36px] flex items-center justify-center"
         >
-          <IconChevronRight size={14} />
+          <IconChevronRight size={16} />
         </button>
       )}
     </div>

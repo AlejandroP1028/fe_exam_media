@@ -1,15 +1,15 @@
 "use client";
 
-import { CustomSidebar } from "@/components/sidebars/ScoupSidebar";
+import { CustomSidebar } from "@/components/sidebars/scoup/ScoupSidebar";
 import { Provider } from "react-redux";
 import { store } from "@/store";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
-      <div className="flex  sm:flex-row  min-h-screen  ">
+      <div className="flex  flex-col sm:flex-row  min-h-screen  ">
         {/* Sidebar */}
-        <aside className="w-46 h-fit sm:h-full flex-shrink-0">
+        <aside className="sm:w-46 h-fit sm:h-full flex-shrink-0">
           <CustomSidebar />
         </aside>
 
