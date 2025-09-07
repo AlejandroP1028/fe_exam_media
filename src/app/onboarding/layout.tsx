@@ -1,5 +1,5 @@
 "use client";
-import PageTransition from "@/components/custom/TransitionWrapper";
+
 import { CustomSidebar } from "@/components/sidebars/OnboardingSidebar";
 import { Provider } from "react-redux";
 import { store } from "@/store";

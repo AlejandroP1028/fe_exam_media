@@ -6,7 +6,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogClose,
 } from "@/components/ui/dialog";
 import { FileUploadArea } from "./FileUploadArea";
 import { UploadedFileDisplay } from "./UploadedFileDisplay";

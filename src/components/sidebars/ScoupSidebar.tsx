@@ -12,7 +12,7 @@ import {
 } from "@tabler/icons-react";
 import gsap from "gsap";
 import LogoMorph from "@/components/custom/LogoMorph";
-
+import Image from "next/image";
 interface SidebarLink {
   title: string;
   icon: React.ComponentType<{ size?: number; className?: string }>;
@@ -177,7 +177,7 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
     `}
           >
             <div className="flex items-center justify-center w-10 h-10 flex-shrink-0">
-              <img
+              <Image
                 src="/Avatar.svg"
                 alt="User avatar"
                 className="w-8 h-8 rounded-full"

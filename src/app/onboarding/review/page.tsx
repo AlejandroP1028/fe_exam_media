@@ -37,7 +37,7 @@ const Page = () => {
           <div className="flex flex-col font-sans">
             <h2 className="font-black text-xl">Review and Complete</h2>
             <span className="font-normal text-md text-[#3D3D3A]">
-              Make sure everything's good to go
+              Make sure everything&apos;s good to go
             </span>
           </div>
 

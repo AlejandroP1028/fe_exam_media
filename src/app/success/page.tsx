@@ -9,7 +9,7 @@ const page = () => {
         <Image src={"/logo.svg"} alt="Logo" width={44} height={48} />
         <div className="flex flex-col items-center">
           <div className="font-sans font-black text-[32px] leading-[120%]">
-            You're all set!
+            You&apos;re all set!
           </div>
           <div className="font-sans text-center text-sm text-[#3D3D3A]] leading-[140%]">
             Your account is ready. Start creating engaging newsletters. Connect

@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "@/components/login/Header";
 
 import AccountInformationCard from "@/components/onboarding/AccountInformationCard";
 const page = () => {

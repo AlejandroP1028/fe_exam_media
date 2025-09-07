@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import CustomButton from "../custom/Button";
-import { useDispatch, UseDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { completeStep } from "@/store/onboardingSlice";
 import Link from "next/link";
 const KeywordsHeader = () => {

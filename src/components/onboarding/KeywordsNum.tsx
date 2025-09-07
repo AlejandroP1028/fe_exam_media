@@ -5,11 +5,12 @@ export interface KeywordsProps {
   image: string;
   type: string;
 }
+import Image from "next/image";
 
 const KeywordsNum = ({ quantity, image, type }: KeywordsProps) => {
   return (
     <div className="flex flex-row space-x-2 items-center">
-      <img src={image} alt="" />
+      <Image src={image} alt="" />
       <span>
         {quantity} {type} {" Keywords"}
       </span>

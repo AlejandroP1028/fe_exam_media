@@ -80,7 +80,7 @@ const LoginCard = () => {
 
       <CardFooter className="flex justify-center">
         <p className="font-archivo text-sm leading-1.4 text-[#73726C]">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/auth/signup" className="font-semibold text-[#141413]">
             Sign up
           </Link>

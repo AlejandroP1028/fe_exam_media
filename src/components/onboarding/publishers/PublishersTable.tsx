@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ChevronDown } from "lucide-react";
+
 import type { PublisherRow } from "@/lib/types";
 import { IconArrowDown } from "@tabler/icons-react";
 interface PublisherTableProps {

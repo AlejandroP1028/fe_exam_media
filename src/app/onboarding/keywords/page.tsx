@@ -1,6 +1,6 @@
 import React from "react";
 import KeywordsManager from "@/components/onboarding/Keywords";
-import AccountInformationCard from "@/components/onboarding/AccountInformationCard";
+
 import KeywordsHeader from "@/components/onboarding/KeywordsHeader";
 const page = () => {
   return (

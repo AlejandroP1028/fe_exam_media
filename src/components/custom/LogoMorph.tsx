@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useState, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 
