@@ -1,8 +1,10 @@
 ---
+
 ### Frontend Exam
 
 Name: Alejandro Prado
 Role: Junior Front End Developer
+
 ---
 
 ### Tech Stack
