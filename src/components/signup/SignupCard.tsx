@@ -119,7 +119,7 @@ const SignupCard = () => {
       <CardFooter className="flex justify-center ">
         <p className="font-archivo text-sm leading-1.4 text-[#73726C]">
           Already have an account?{" "}
-          <Link href="/login" className="font-semibold text-[#141413]">
+          <Link href="/auth/login" className="font-semibold text-[#141413]">
             Log in
           </Link>
         </p>

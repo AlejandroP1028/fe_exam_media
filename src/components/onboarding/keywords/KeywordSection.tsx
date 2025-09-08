@@ -31,7 +31,7 @@ export function KeywordSection({
 }: KeywordSectionProps) {
   return (
     <div className="flex flex-col space-y-2 mb-8 w-full">
-      <h2 className="text-md font-semibold text-gray-900">{title}</h2>
+      <h2 className="text-sm font-semibold text-gray-900">{title}</h2>
       <div className="flex flex-wrap gap-2">
         <AnimatePresence>
           {keywords.map((keyword) => (

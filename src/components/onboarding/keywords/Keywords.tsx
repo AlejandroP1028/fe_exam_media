@@ -20,9 +20,9 @@ export default function KeywordsManager() {
 
   return (
     <div className="w-full max-w-[860px] h-screen bg-white font-sans px-4 sm:px-6 py-4 rounded-2xl overflow-auto">
-      <h1 className="text-lg font-semibold mb-4">Keywords Preview</h1>
+      <h1 className="text-sm mb-4">Keywords Preview</h1>
 
-      <div className="space-y-6">
+      <div className="space-y-6 sm:p-8">
         <KeywordSection
           title="Main Keywords"
           keywords={mainKeywords}
