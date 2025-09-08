@@ -1,9 +1,7 @@
 ---
-
 ### Frontend Exam
 
 This project is a frontend exam submission demonstrating the ability to build responsive, interactive, and reusable UI components using modern web technologies. The project simulates an onboarding section and a dashboard with a sidebar, article cards, and a header with categories, focusing on usability, animations, and mobile responsiveness.
-
 ---
 
 ### Tech Stack
@@ -26,7 +24,7 @@ Markdown Rendering: React Markdown
 
 Clone the repository and install dependencies:
 
-    git clone <repo-url>
-    cd <project-folder>
+    git clone https://github.com/AlejandroP1028/fe_exam_media.git
+    cd fe_exam_media
     npm install
     npm run dev
