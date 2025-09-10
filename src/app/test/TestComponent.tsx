@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import LogoMorph from "@/components/custom/LogoMorph";
 import CustomButton from "@/components/custom/Button";
