@@ -6,7 +6,7 @@ import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 
 gsap.registerPlugin(MorphSVGPlugin);
 interface LogoMorphProps {
-  expanded: boolean; // controlled by parent
+  expanded: boolean;
 }
 export default function LogoMorph({ expanded }: LogoMorphProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
