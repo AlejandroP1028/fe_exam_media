@@ -34,7 +34,7 @@ export function CustomSidebar({ className = "" }: CustomSidebarProps) {
     isExpanded,
     setIsExpanded,
     textRefs,
-    footerTextRef,
+
     handleMouseEnter,
     handleMouseLeave,
   } = useSidebar();
