@@ -11,7 +11,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <CustomSidebar />
         </div>
 
-        <main className=" w-screen flex items-center ">{children}</main>
+        <main className="w-screen flex items-center overflow-x-hidden">
+          {children}
+        </main>
       </Provider>
     </div>
   );
